@@ -1,0 +1,17 @@
+#body{
+	min-height:1000px;
+}
+.msg{
+	width:100%;
+	padding: 30px 0;
+}
+.msg li{
+	height: 30px;
+	width: 100%;
+}
+.msg img{
+	margin-right: 10px;
+}
+.msg li:last-child img{
+	width: 70%;
+}

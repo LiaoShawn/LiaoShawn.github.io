@@ -1,0 +1,22 @@
+/*案例展示页面表格部分*/
+#body{
+	min-height:1000px;
+}
+#mainbox .biao{
+	font-size: 0.7rem;
+	padding: 30px 0;
+}
+#mainbox .biao td{
+	height: 100px;
+	width: 25%;
+	padding: 5px 10px;
+}
+#mainbox .biao td img{
+	width: 100%;
+	height: 130px;
+}
+
+#mainbox .page div:nth-child(3){
+	background: #fff;
+	color: #000;
+}

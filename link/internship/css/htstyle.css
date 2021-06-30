@@ -1,0 +1,183 @@
+*{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	text-decoration: none;
+}
+#body{
+	position: relative;
+	overflow: hidden;
+}
+/*标题*/
+#title{
+	height: 60px;
+	width: 100%;
+	width: 80%;
+	margin: 10px auto;
+}
+#head{
+	width: 100%;
+}
+h1{
+	float: left;
+}
+#logo{
+	height: 40px;
+}
+#menu{
+	float: right;
+	text-align: left;
+	margin-bottom: 0;
+	line-height: 30px;
+}
+#menu span{
+	float: right;
+	font-weight: bold;
+	color: rgb(23,110,198);
+}
+#menu ul{
+	clear: both;
+}
+#menu ul li{
+	display: inline-block;
+	width: 80px;
+	text-align: right;
+}
+#menu a{
+	color: #000;
+}
+#menu a:hover{
+	color: red;
+}
+#phone{
+	height: 16px;
+	margin-right: 5px;
+}
+/*主内容盒子*/
+
+#mainbox{
+	width: 85%;
+	margin: auto;
+	font-size: 0.8rem;
+}
+
+
+.clean{
+	clear: both;
+}
+
+
+/*尾部*/
+#tail{
+	height: 100px;
+	background-image: url(../images/footer_bg.png);
+	overflow: hidden;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+}
+#tail>div{
+	width: 70%;
+	margin: 20px auto;
+	color: #fff;
+	font-size: 1rem;
+}
+#tail li{
+	float: left;
+}
+#tlink{
+	float: right;
+}
+#msg{
+	margin-top:20px;
+	float: left;
+}
+#tech{
+	float: right;
+	margin-top: 20px;
+}
+#opt{
+	background-image: url(../images/select.png);
+	background-position: top right;
+	background-repeat: no-repeat;
+	background-size: 20%;
+	color: #fff;
+	background-color: #000;
+	border: 1px solid #fff;
+}
+
+/*右边导航栏*/
+#bar{
+	position: fixed;
+	right: 0px;
+	top: 30%;
+	z-index: 99;
+}
+#bar li{
+	height: 50px;
+	width: 50px;
+	background-size: 100%;
+	margin-bottom: 2px;
+}
+#bar a{
+	color: #fff;
+	display: inline-block;
+	width: 100%;
+	margin-top: 30px;
+	text-align: center;
+	font-size: 12px;
+}
+#bar li:first-child{
+	background-image: url(../images/ab8.png);
+}
+#bar li:nth-child(2){
+	background-image: url(../images/r_qq.png);
+}
+#bar li:nth-child(3){
+	background-image: url(../images/r_wechat.png);
+}
+#bar li:nth-child(4){
+	background-image: url(../images/r_tel.png);
+}
+#bar li:nth-child(5){
+	background-image: url(../images/r_msg.png);
+}
+
+/*大图*/
+#dt{
+	width: 100%;
+	position: relative;
+}
+#dt:hover img:first-child,#dt:hover img:last-child{
+	display: inline-block;
+}
+#dt img:nth-child(2){
+	width: 100%;
+	cursor: pointer;
+}
+#dt img:first-child,#dt img:last-child{
+	position: absolute;
+	top: 50%;
+	margin-top: -30px;
+	width: 2%;
+	display: none;
+}
+#dt img:last-child{
+	right: 5%;
+}
+#dt img:first-child{
+	left: 5%;
+}
+
+/*左边咨询栏*/
+
+#online{
+	position: fixed;
+	left: 0px;
+	bottom: 30%;
+	height: 42px;
+	width: 120px;
+	background-image: url(../images/left-kf.png);
+	z-index: 99;
+	background-size: 100%;
+}
