@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			body{
+				background-color: #ccccccc;
+			}
+			#outer{
+				width: 60%;
+				margin: auto;
+				/* border:1px solid #FF0000; */
+				background-color: #000;
+			}
+			.abs{/* 绝对定位 */
+				position: absolute;
+			}
+			.fw{/* 宽度100% */
+				width: 100%;
+			}
+			#header{
+				height: 100px;
+				position: relative;
+			}
+			#header .top{
+				height: 50px;
+				top: 0;
+			}
+			#header .top .logo{
+				color: #fff;
+				font-size: 24px;
+				top: 50%;
+				margin-top: -12px;
+				left: 0;
+			}
+			#header .top .phone{
+				color: #fff;
+				top: 50%;
+				margin-top: -12px;
+				right: 0;
+				line-height: 34px;
+			}
+			#header .top .phone img{
+				width: 30px;
+				height: 30px;
+				margin-right: 10px;
+				margin-bottom: -8px;
+			}
+			#header .line{
+				height: 2px;
+				top: 50%;
+				background-color: rgba(255,255,255,0.7);
+			}
+			#header .line .yb{
+				height: 3px;
+				width: 20%;
+				background-color: #00ACED;
+				border-radius: 2px;
+			}
+			#header .bottom{
+				height: 50px;
+				bottom: 0;
+			}
+			#header .bottom li{
+				float: left;
+				list-style: none;
+				height: 50px;
+				line-height: 50px;
+				color: #fff;
+				width: 20%;
+				text-align: center;
+			}
+			#header .bottom li a{
+				text-decoration: none;
+				color: #fff;
+				display: inline-block;
+				line-height: 20px;
+				height: 20px;
+				width: 100%;
+				border-right: 1px solid rgba(255,255,255,0.6);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="outer">
+			<div id="header" class="fw">
+				<div class="top abs fw">
+					<div class="logo abs">LOGO</div>
+					<div class="phone abs"><img src="电话.png" >15514435137</div>
+				</div>
+				<div class="line abs fw">
+					<div class="yb abs"></div>
+				</div>
+				<div class="bottom abs fw">
+					<ul>
+						<li style="font-weight: bold;"><a href="#">首页</a></li>
+						<li><a href="#">公司介绍</a></li>
+						<li><a href="#">案例展示</a></li>
+						<li><a href="#">新闻动态</a></li>
+						<li><a href="#">关于我们</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			window.onload=function(){
+				const lis=document.getElementById("header").getElementsByTagName("li");//获取li伪数组
+				lis[lis.length-1].getElementsByTagName("a")[0].style.border="none";//去掉最后一个超链接的右边框
+				const yb=document.getElementsByClassName("yb")[0]; 	//获取滚动条
+				var page_th=0;
+				yb.index=page_th%lis.length;//根据页面序号确定滚动条默认位置
+				yb.style.left=yb.index*lis[0].clientWidth+"px";
+				for(var i=0;i<lis.length;i++){
+					(function(i){
+						lis[i].onmouseenter=function(){//超链接鼠标放上事件
+							yb.style.left=lis[0].clientWidth*i+"px";//设置滚动条的位置
+							yb.style.transition="all 0.5s";//设置滚动条的变换属性
+						}
+						lis[i].onmouseleave=function(){
+							yb.style.left=lis[0].clientWidth*yb.index+"px";
+							yb.style.transition="all 0.5s";
+						}
+					})(i)
+				}
+			}
+		</script>
+	</body>
+</html>
