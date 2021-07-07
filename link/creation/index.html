@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			body{
+				height: 720px;
+			}
+			#plane{
+				height: 50px;
+				width: 50px;
+				position: absolute;
+				z-index: 1;
+			}
+			.zd{
+				background-image: url(img/p-f03.png);
+				height: 50px;
+				width: 50px;
+				background-size: 100%;
+				position: absolute;
+			}
+			.enemy{
+				width: 50px;
+				height: 50px;
+				transform: rotateZ(180deg);
+				position: absolute;
+			}
+			#score{
+				font-size: 30px;
+				font-weight: bold;
+			}
+			#args{
+				position: absolute;
+				z-index: 9;
+				width: 100%;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var plane=document.getElementById("plane");	//飞机
+				var body=document.body;
+				var score=document.getElementById("score");	//分数盒子
+				var count=0;								//分数
+				var enemyNum=document.getElementById("enemyNum");	//敌机数量控制
+				var en=2200- parseInt(enemyNum.value)*200;			//设置范围
+				var enemySpeed=document.getElementById("enemySpeed");	//敌机速度控制
+				var es=50-parseInt(enemySpeed.value);	//范围
+				var args=document.getElementById("args");	//控制盒子
+				score.innerHTML=count+"分";
+				body.onmousemove=function(){		//控制飞机跟随鼠标移动
+					plane.style.left=event.clientX-25+"px";
+					plane.style.top=event.clientY-25+"px";
+				}
+				function Enemy(left){	//敌机构造函数
+					this.enemy=document.createElement("img");	//创建敌机元素
+					this.enemy.style.left=left;					//创建时设置位置
+					this.enemy.style.top=0;
+				}
+				var enemyArr=[];	//敌机数组，用于判断击中
+				function begin(){
+					body.timer=setInterval(function(){	//创建敌机定时器
+						var e=new Enemy(Math.round(Math.random()*1536)+"px");//随机生成位置
+						e.enemy.setAttribute("src","img/a4-2.png");
+						e.enemy.setAttribute("class","enemy");
+						body.appendChild(e.enemy);		//将元素加入body
+						enemyArr.push(e);	//将新建的敌机放入数组
+						e.enemy.timer=setInterval(function(){	//创建敌机移动定时器
+							e.enemy.style.top=e.enemy.offsetTop+2+"px";
+							e.left=e.enemy.offsetLeft;
+							e.top=e.enemy.offsetTop;
+							if(e.enemy.offsetTop>=710){	//敌机未被打中删除
+								clearInterval(e.timer);
+								body.removeChild(e.enemy);
+								enemyArr.splice(e,1);
+							};
+						},es)
+					},en);
+				}
+				args.onmouseout=begin;
+				begin();
+				
+				args.onmousemove=function(){
+					en=2200- parseInt(enemyNum.value)*200;	//调节敌机属性，并重启计时器更新属性
+					es=50-parseInt(enemySpeed.value);
+					clearInterval(body.timer);
+				}
+				var timer1=setInterval(function(){	//定义子弹自动发射
+					var div=document.createElement("div");	//创建div元素
+					div.setAttribute("class","zd");			//设置类名
+					div.style.top=plane.style.top;
+					div.style.left=plane.style.left;		//设置位置，跟随飞机位置
+					body.appendChild(div);					//将元素添加到body
+					div.timer=setInterval(function(){		//定时生成子弹
+						div.style.top=div.offsetTop-5+"px";	//调整位置
+						for(var i=0;i<enemyArr.length;i++){	//遍历敌机列表，判断击中
+							if(div.offsetTop-enemyArr[i].top<=50 && Math.abs(div.offsetLeft-enemyArr[i].left)<=50){
+								body.removeChild(div);		//击中后删除元素
+								clearInterval(div.timer);	//关闭元素计时器
+								clearInterval(enemyArr[i].timer);		//关闭敌机计时器
+								body.removeChild(enemyArr[i].enemy);	//删除敌机元素
+								enemyArr.splice(i,1);					//从敌机数组中删除
+								count+=10;
+								score.innerHTML=count+"分";				//加分
+							}
+						}
+						if(div.offsetTop<=0){
+							body.removeChild(div);			//子弹到顶端删除并关闭计时器
+							clearInterval(div.timer);
+						}
+					},1);
+				},200);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="score">
+		</div>
+		<div id="args">
+			敌机数量<input type="range" min="1" max="10" id="enemyNum" value="" /><br>
+			敌机速度<input type="range" min="0" max="45" id="enemySpeed" value="" />
+		</div>
+		<img src="img/a4-2.png" id="plane" />
+	</body>
+</html>
