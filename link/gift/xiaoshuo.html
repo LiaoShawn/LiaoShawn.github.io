@@ -7,15 +7,15 @@
 	<style>
 		#box{
 			transform-style: preserve-3d;
-			width: 200px;
-			height: 200px;
-			margin: 400px auto;
+			width: 20px;
+			height: 20px;
+			margin: 40px auto;
 			position: relative;
 			animation: spin 16s infinite linear;
 		}
 		.front,.back,.top,.bottom,.left,.right{
-			width: 200px;
-			height: 200px;
+			width: 20px;
+			height: 20px;
 			background: #0ff;
 			position: absolute;
 			top: 0;
@@ -23,53 +23,53 @@
 			background-size: 100% 100%;
 		}
 		.front1,.back1,.top1,.bottom1,.left1,.right1{
-			width: 400px;
-			height: 400px;
+			width: 40px;
+			height: 40px;
 			background: #bBf;
 			position: absolute;
-			top: -100px;
-			left: -100px;
+			top: -10px;
+			left: -10px;
 			transition: all 3s;
 		}
 		.front{
-			transform: translateZ(100px);
+			transform: translateZ(10px);
 			background-image: url(img/1.jpg);
 		}
 		.back{
-			transform: translateZ(-100px);
+			transform: translateZ(-10px);
 			background-image: url(img/2.jpg);
 		}
 		.top{
-			transform: rotateY(90deg) translateZ(100px);
+			transform: rotateY(90deg) translateZ(10px);
 		}
 		.bottom{
-			transform: rotateY(-90deg) translateZ(100px);
+			transform: rotateY(-90deg) translateZ(10px);
 		}
 		.left{
-			transform: rotateX(90deg) translateZ(100px);
+			transform: rotateX(90deg) translateZ(10px);
 			background-image: url(img/3.bmp);
 		}
 		.right{
-			transform: rotateX(-90deg) translateZ(100px);
+			transform: rotateX(-90deg) translateZ(10px);
 			background-image: url(img/4.jpg);
 		}
 		.front1{
-			transform: translateZ(200px);
+			transform: translateZ(20px);
 		}
 		.back1{
-			transform: rotateX(180deg) translateZ(200px);
+			transform: rotateX(180deg) translateZ(20px);
 		}
 		.top1{
-			transform: rotateY(90deg) translateZ(200px);
+			transform: rotateY(90deg) translateZ(20px);
 		}
 		.bottom1{
-			transform: rotateY(-90deg) translateZ(200px);
+			transform: rotateY(-90deg) translateZ(20px);
 		}
 		.left1{
-			transform: rotateX(90deg) translateZ(200px);
+			transform: rotateX(90deg) translateZ(20px);
 		}
 		.right1{
-			transform: rotateX(-90deg) translateZ(200px);
+			transform: rotateX(-90deg) translateZ(20px);
 		}
 		@keyframes spin {
 			from{
@@ -87,42 +87,42 @@
 			box.onclick=function(){
 				if(flag){
 					flag=!flag;
-					this.getElementsByClassName("front1")[0].style.transform="translateZ(400px)";
-					this.getElementsByClassName("back1")[0].style.transform="rotateX(180deg)  translateZ(400px)";
-					this.getElementsByClassName("left1")[0].style.transform="rotateX(90deg) translateZ(400px)";
-					this.getElementsByClassName("right1")[0].style.transform="rotateX(-90deg)  translateZ(400px)";
-					this.getElementsByClassName("top1")[0].style.transform="rotateY(90deg) translateZ(400px)";
-					this.getElementsByClassName("bottom1")[0].style.transform="rotateY(-90deg) translateZ(400px)";
+					this.getElementsByClassName("front1")[0].style.transform="translateZ(40px)";
+					this.getElementsByClassName("back1")[0].style.transform="rotateX(180deg)  translateZ(40px)";
+					this.getElementsByClassName("left1")[0].style.transform="rotateX(90deg) translateZ(40px)";
+					this.getElementsByClassName("right1")[0].style.transform="rotateX(-90deg)  translateZ(40px)";
+					this.getElementsByClassName("top1")[0].style.transform="rotateY(90deg) translateZ(40px)";
+					this.getElementsByClassName("bottom1")[0].style.transform="rotateY(-90deg) translateZ(40px)";
 				}else{
 					flag=!flag;
-					this.getElementsByClassName("front1")[0].style.transform="translateZ(200px)";
-					this.getElementsByClassName("back1")[0].style.transform="rotateX(180deg)  translateZ(200px)";
-					this.getElementsByClassName("left1")[0].style.transform="rotateX(90deg) translateZ(200px)";
-					this.getElementsByClassName("right1")[0].style.transform="rotateX(-90deg)  translateZ(200px)";
-					this.getElementsByClassName("top1")[0].style.transform="rotateY(90deg) translateZ(200px)";
-					this.getElementsByClassName("bottom1")[0].style.transform="rotateY(-90deg) translateZ(200px)";
+					this.getElementsByClassName("front1")[0].style.transform="translateZ(20px)";
+					this.getElementsByClassName("back1")[0].style.transform="rotateX(180deg)  translateZ(20px)";
+					this.getElementsByClassName("left1")[0].style.transform="rotateX(90deg) translateZ(20px)";
+					this.getElementsByClassName("right1")[0].style.transform="rotateX(-90deg)  translateZ(20px)";
+					this.getElementsByClassName("top1")[0].style.transform="rotateY(90deg) translateZ(20px)";
+					this.getElementsByClassName("bottom1")[0].style.transform="rotateY(-90deg) translateZ(20px)";
 				}
 			}
 		}
 	</script>
 </head>
 <body>
-	<div id="box1">
-		
+	<div id="body">
+		<div id ="box">
+			<div class="front"></div>
+			<div class="back"></div>
+			<div class="top"></div>
+			<div class="bottom"></div>
+			<div class="left"></div>
+			<div class="right"></div>
+			<div class="front1"></div>
+			<div class="back1"></div>
+			<div class="top1"></div>
+			<div class="bottom1"></div>
+			<div class="left1"></div>
+			<div class="right1"></div>
+		</div>
 	</div>
-	<div id ="box">
-		<div class="front"></div>
-		<div class="back"></div>
-		<div class="top"></div>
-		<div class="bottom"></div>
-		<div class="left"></div>
-		<div class="right"></div>
-		<div class="front1"></div>
-		<div class="back1"></div>
-		<div class="top1"></div>
-		<div class="bottom1"></div>
-		<div class="left1"></div>
-		<div class="right1"></div>
-	</div>
+	
 </body>
 </html>
